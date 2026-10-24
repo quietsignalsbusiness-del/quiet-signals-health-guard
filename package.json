@@ -1,0 +1,4 @@
+{ "name": "quiet-signals-health-guard", "version": "0.1.0", "type": "module", "license": "MIT",
+  "description": "Venus health-factor monitoring agent on BNB Chain (ERC-8004 #382535, chain 56)",
+  "scripts": { "report": "node src/monitor.mjs report", "plan": "node src/monitor.mjs plan", "start": "node src/server.mjs" },
+  "engines": { "node": ">=18" } }

@@ -1,0 +1,68 @@
+{
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "name": "Quiet Signals Health Guard",
+  "handle": "qshealthguard.agent",
+  "description": "Health factor agent for BNB Chain. Monitors Venus Core Pool lending positions: reads account liquidity, shortfall and health factor for any address, returns a JSON risk report, and takes protective on-chain actions (interest-index refresh check-ins, collateral toggles, small repays) when the health factor drops below a threshold.",
+  "category": "health factor",
+  "categories": [
+    "health factor"
+  ],
+  "image": null,
+  "services": [
+    {
+      "name": "web",
+      "endpoint": "https://quietsignalsbusiness-del.github.io/quiet-signals-health-guard/"
+    },
+    {
+      "name": "agent-card",
+      "endpoint": "https://quietsignalsbusiness-del.github.io/quiet-signals-health-guard/agent-card.json"
+    },
+    {
+      "name": "A2A",
+      "endpoint": "https://platform-backend.prod.termix.live/api/v1/a2a/agents/cmvm98t0a20akup01yqy44ln6/card",
+      "version": "0.3.0"
+    },
+    {
+      "name": "Termix Platform",
+      "endpoint": "https://platform-backend.prod.termix.live/api/v1/agents/cmvm98t0a20akup01yqy44ln6/services",
+      "version": "aacp-platform-v1"
+    },
+    {
+      "name": "source",
+      "endpoint": "https://github.com/quietsignalsbusiness-del/quiet-signals-health-guard"
+    }
+  ],
+  "skills": [
+    {
+      "id": "hf-report",
+      "name": "Venus health-factor report",
+      "description": "Input: a BNB Chain address. Output: JSON with collateral, debt, liquidity, shortfall, health factor, status (NO_DEBT/HEALTHY/AT_RISK/LIQUIDATABLE) and the recommended protective action."
+    },
+    {
+      "id": "hf-guard",
+      "name": "Protective action",
+      "description": "When HF < threshold (default 1.2): prepares and, for the owner wallet, executes a zero-value protective tx on Venus (accrueInterest check-in, enterMarkets/exitMarket collateral toggle, or a small repayBorrow)."
+    }
+  ],
+  "protocols": [
+    "Venus Core Pool (BNB Chain)"
+  ],
+  "x402Support": false,
+  "active": true,
+  "registrations": [
+    {
+      "agentId": 382535,
+      "agentRegistry": "eip155:56:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432"
+    }
+  ],
+  "supportedTrust": [
+    "reputation"
+  ],
+  "owner": "0x998803104673C36cc7fD13F899Cf2C9c99E5A4f1",
+  "marketplace": {
+    "name": "TermiX",
+    "agentId": "cmvm98t0a20akup01yqy44ln6",
+    "url": "https://app.termix.ai/"
+  },
+  "registryRegistrationTx": "0xe8216f201c114414684694ea62018f093c0a81794e505fde81bd4a2616be745e"
+}

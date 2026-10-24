@@ -1,0 +1,4 @@
+name = "quiet-signals-health-guard"
+main = "worker/worker.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
