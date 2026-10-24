@@ -1,0 +1,23 @@
+name: unzip
+on:
+  push:
+    paths:
+      - '.github/workflows/unzip.yml'
+      - 'quiet-signals-health-guard.zip'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack
+        run: |
+          unzip -o quiet-signals-health-guard.zip
+          git rm -q quiet-signals-health-guard.zip
+          git config user.name "Quiet Signals"
+          git config user.email "quietsignalsbusiness@gmail.com"
+          git add -A
+          git commit -m "Unpack Health Guard agent files"
+          git push
